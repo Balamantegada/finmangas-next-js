@@ -18,15 +18,14 @@ import Layout from '../../components/Layout';
 import classes from '../../utils/classes';
 import client from '../../utils/client';
 import { urlFor, urlForThumbnail } from '../../utils/image';
-import { store } from '../../utils/store';
+import { store, StoreProvider } from '../../utils/store';
 import axios from 'axios';
 import { useSnackbar } from 'notistack';
 
 export default function ProductScreen(props) {
   const { slug } = props;
   const {
-    state: { cart },
-    dispatch,
+    state: { cart, dispatch },
   } = useContext(store);
   const { enqueueSnackbar } = useSnackbar();
   const [state, setState] = useState({
